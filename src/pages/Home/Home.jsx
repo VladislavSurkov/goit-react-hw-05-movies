@@ -20,8 +20,6 @@ const Home = () => {
     getTrendingMovies().then(setMovies);
   }, []);
 
-
-
   return (
     <HomeContainer>
       <HomeTitle>Tranding today</HomeTitle>

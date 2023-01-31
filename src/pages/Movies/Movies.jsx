@@ -10,7 +10,7 @@ import {
   MovieLink,
   Img,
   MovieTitle,
-} from '../MovieDetails/Movies.styled';
+} from './Movies.styled';
 
 const Movies = () => {
   const [query, setQuery] = useState('');

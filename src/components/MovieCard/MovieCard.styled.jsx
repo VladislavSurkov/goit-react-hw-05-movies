@@ -30,11 +30,9 @@ export const Description = styled.p`
   margin-bottom: 15px;
   font-size: 22px;
   font-weight: 500;
-  
 `;
 
 export const Text = styled.span`
   font-weight: 300;
   letter-spacing: 0.05em;
-  
 `;

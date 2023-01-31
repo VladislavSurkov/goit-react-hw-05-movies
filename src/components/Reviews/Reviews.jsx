@@ -1,15 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ReviewsContainer } from './Reviews.styled';
-import { getMovieReviews } from '../../services/fetchMovies'
+import { getMovieReviews } from '../../services/fetchMovies';
 
 const Reviews = () => {
   const { movieId } = useParams('movieId');
   const [reviews, setReviews] = useState([]);
 
- useEffect(() => {
-   getMovieReviews(movieId).then(setReviews);
- }, [movieId]);
+  useEffect(() => {
+    getMovieReviews(movieId).then(setReviews);
+  }, [movieId]);
 
   return (
     <ReviewsContainer>

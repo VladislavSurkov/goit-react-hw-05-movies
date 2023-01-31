@@ -10,7 +10,8 @@ import {
 } from './MovieCard.styled';
 
 export const MovieCard = ({ movie }) => {
-  const { poster_path, title, release_date, vote_average, overview, genres } =movie;
+  const { poster_path, title, release_date, vote_average, overview, genres } =
+    movie;
 
   const imgUrl = poster_path
     ? imgBaseUrl.concat(poster_path)

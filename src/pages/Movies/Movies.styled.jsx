@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
-
 export const Form = styled.form`
-    margin: 10px 0 20px;
-    max-width: 600px;
-    display: flex;
-    background-color: #fff;
-    border-radius: 3px;
-    overflow: hidden;
-    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  margin: 10px 0 20px;
+  max-width: 600px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
 `;
 
 export const Input = styled.input`

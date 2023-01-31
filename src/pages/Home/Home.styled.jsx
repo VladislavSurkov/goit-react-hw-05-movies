@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const HomeContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const HomeTitle = styled.h1`
@@ -13,7 +12,6 @@ export const HomeTitle = styled.h1`
   color: #3f51b5;
   margin: 30px, 0;
   text-decoration: none;
-  
 `;
 
 export const MovieList = styled.ul`

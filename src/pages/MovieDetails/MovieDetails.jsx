@@ -3,6 +3,7 @@ import { useParams, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { getMovieDetails } from '../../services/fetchMovies';
 import { MovieCard } from '../../components/MovieCard/MovieCard';
 import { Btn, Container, InfoLink } from './MovieDetails.styled';
+import Loader from '../../components/Loader/Loader';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -28,14 +29,14 @@ const MovieDetails = () => {
       </Btn>
       <MovieCard movie={movieDetails} />
       <Container>
-          <InfoLink to={'cast'} state={{ from: location?.state?.from }}>
-            Cast
-          </InfoLink>
-          <InfoLink to={'reviews'} state={{ from: location?.state?.from }}>
-            Reviews
-          </InfoLink>
+        <InfoLink to={'cast'} state={{ from: location?.state?.from }}>
+          Cast
+        </InfoLink>
+        <InfoLink to={'reviews'} state={{ from: location?.state?.from }}>
+          Reviews
+        </InfoLink>
       </Container>
-      <Suspense>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>
