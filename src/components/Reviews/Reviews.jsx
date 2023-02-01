@@ -13,7 +13,7 @@ const Reviews = () => {
 
   return (
     <ReviewsContainer>
-      {reviews.length > 0 ? (
+      {reviews.length !== 0 ? (
         <ul>
           {reviews.map(({ id, author, content }) => (
             <li key={id}>

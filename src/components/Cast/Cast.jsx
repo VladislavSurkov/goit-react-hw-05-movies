@@ -21,7 +21,7 @@ const Cast = () => {
 
   return (
     <CastContainer>
-      {credits.length > 0 ? (
+      {credits.length !== 0 ? (
         <CastList>
           {credits.map(({ id, profile_path, name, character }) => {
             return (

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { imgBaseUrl } from '../../services/fetchMovies';
 import {
   Container,
@@ -18,8 +19,8 @@ export const MovieCard = ({ movie }) => {
     : 'https://d16u9y6cg00afk.cloudfront.net/Ke58811ef482bae9b4724_by_StickerStealRobot/659227.512.webp';
   const releaseDate = release_date.slice(0, 4);
   const voteScore = vote_average.toFixed(1);
-  const genresList = genres.map(ganre => ganre.name).join(', ');
-
+  const genresList = genres.map(ganre => console.log(ganre)).join(', ');
+  console.log(genres);
   return (
     <Container>
       <Img src={imgUrl} alt="{title}" width="350" />
@@ -39,4 +40,25 @@ export const MovieCard = ({ movie }) => {
       </Wrapper>
     </Container>
   );
+};
+
+MovieCard.propTypes = {
+  movie: PropTypes.arrayOf(
+    PropTypes.shape({
+      poster_path: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      release_date: PropTypes.string.isRequired,
+      vote_average: PropTypes.string.isRequired,
+      overview: PropTypes.string.isRequired,
+      genres: PropTypes.arrayOf(
+        PropTypes.shape({
+          genre: PropTypes.arrayOf(
+            PropTypes.shape({
+              name: PropTypes.string.isRequired,
+            })
+          ),
+        })
+      ).isRequired,
+    })
+  ),
 };
