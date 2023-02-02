@@ -43,7 +43,7 @@ export const MovieCard = ({ movie }) => {
 };
 
 MovieCard.propTypes = {
-  movie: PropTypes.arrayOf(
+  movie: PropTypes.objectOf(
     PropTypes.shape({
       poster_path: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,

@@ -12,6 +12,7 @@ const MovieDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+  
     getMovieDetails(movieId).then(setMovieDetails);
   }, [movieId]);
 

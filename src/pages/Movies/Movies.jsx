@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { getMoviesByName, imgBaseUrl } from '../../services/fetchMovies';
+import NotFound from '../../components/NotFound/NotFound';
+import Loader from '../../components/Loader/Loader';
 import {
   Form,
   Input,
@@ -16,17 +18,29 @@ const Movies = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [status, setStatus] = useState('resolved');
   const location = useLocation();
 
   useEffect(() => {
     const onQuery = searchParams.get('query') ?? '';
     if (!onQuery) return;
 
-    getMoviesByName(onQuery).then(setMovies);
+    getMoviesByName(onQuery).then(results => {
+      setStatus('pending');
+      if (results.length === 0) return setStatus('rejected');
+
+      setStatus('resolved');
+      setMovies(results);
+    });
   }, [searchParams]);
+
   const handleSubmit = e => {
     e.preventDefault();
-    setSearchParams(query !== '' ? { query } : {});
+    if (!query) {
+      alert('Please enter something :)');
+      return;
+    }
+    setSearchParams({ query });
   };
 
   const handleChange = e => {
@@ -39,7 +53,9 @@ const Movies = () => {
         <Input type="text" value={query} onChange={handleChange} />
         <Button type="submit">Search</Button>
       </Form>
-      {movies.length > 0 && (
+      {status === 'pending' && <Loader />}
+      {status === 'rejected' && <NotFound />}
+      {status === 'resolved' && movies.length > 0 && (
         <MovieList>
           {movies.map(({ id, title, name, poster_path }) => (
             <MovieItem key={id}>
